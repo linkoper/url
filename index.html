@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Convertidor de Videos a URL</title>
+<style>
+  body { background: linear-gradient(to right, #3b82f6, #9333ea); font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
+  .card { background-color: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); text-align: center; max-width: 400px; }
+  .button { background-color: #3b82f6; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin-top: 10px; }
+  .button:hover { background-color: #2563eb; }
+  a { color: #3b82f6; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+<h2>hola<h2>  
+  
+  </style>
+</head>
+<body>
+<div class="card">
+<h1>Convertidor de Videos a URL</h1>
+<input type="file" id="videoInput" accept="video/*"><br>
+<button class="button" onclick="convertVideo()">Subir Video</button>
+<div id="result" style="margin-top: 20px;"></div>
+</div>
+<script>
+  function convertVideo() {
+    const videoInput = document.getElementById('videoInput');
+    const result = document.getElementById('result');
+    if (videoInput.files.length > 0) {
+      const videoUrl = URL.createObjectURL(videoInput.files[0]);
+      result.innerHTML = `<p style='color: green;'>¡Video convertido exitosamente!</p><a href='${videoUrl}' target='_blank'>Ver video</a>`;
+    } else {
+      result.innerHTML = '<p style="color: red;">Por favor, selecciona un video.</p>';
+    }
+  }
+</script>
+</body>
+</html>
